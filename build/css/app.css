@@ -411,9 +411,14 @@ img {
 
 .video {
   position: relative;
-  max-height: 70rem;
+  max-height: 45rem;
   min-height: 10%;
   overflow: hidden;
+}
+@media (min-width: 768px) {
+  .video {
+    max-height: 80rem;
+  }
 }
 .video .overlay {
   position: absolute;
@@ -424,6 +429,7 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
 }
 .video video {
   width: auto;
