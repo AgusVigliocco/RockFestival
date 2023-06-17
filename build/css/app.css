@@ -720,3 +720,13 @@ img {
 .pase .pase-footer p {
   font-size: 3rem;
 }
+
+.site-footer {
+  background-color: #f53756;
+  padding: 1rem;
+}
+.site-footer p {
+  text-align: center;
+  margin: 0;
+  color: #ffffff;
+}
