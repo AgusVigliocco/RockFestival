@@ -656,3 +656,67 @@ img {
   transform: scale(1.1);
   transition: 0.15s;
 }
+
+.boletos {
+  padding: 5rem 0;
+}
+.boletos h3 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 3rem;
+}
+@media (min-width: 768px) {
+  .boletos .contenedor-boletos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+  }
+}
+
+.pase .nombre-pase {
+  text-align: center;
+  color: #ffffff;
+  font-weight: 700;
+  font-style: oblique;
+  font-size: 2.6rem;
+}
+.pase .pase-header p,
+.pase .pase-footer p {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #ffffff;
+  padding: 0.5rem;
+  margin: 0;
+}
+.pase .pase-header {
+  background-color: #f53756;
+}
+.pase .pase-header p {
+  font-size: 2rem;
+}
+.pase .pase-body {
+  background-color: #ffffff;
+}
+.pase .pase-body ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pase .pase-body ul li,
+.pase .pase-body ul :nth-child(odd) {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-bottom: 1px solid #e1e1e1;
+  font-size: 2rem;
+}
+.pase .pase-body ul li:hover,
+.pase .pase-body ul :nth-child(odd):hover {
+  background-color: #fef46d;
+}
+.pase .pase-footer {
+  background-color: #752f97;
+}
+.pase .pase-footer p {
+  font-size: 3rem;
+}
