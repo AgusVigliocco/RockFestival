@@ -1,21 +1,29 @@
-const { src, dest, watch, parallel } = require("gulp");
+const { src, dest, watch, parallel } = require('gulp');
 
 //! CSS
-const sass = require("gulp-sass")(require("sass"));
-const plumber = require("gulp-plumber");
+const sass = require('gulp-sass')(require('sass'));
+const plumber = require('gulp-plumber');
+const autoprefixer = require('autoprefixer')
+const cssnano = require('cssnano')
+const postcss = require('gulp-postcss')
+
+//! JAVASCRIPT
+const terser = require('gulp-terser-js')
+
 
 //! IMAGENES
-const webp = require("gulp-webp");
+const webp = require('gulp-webp');
 const imagemin = require('gulp-imagemin')
 const cache = require('gulp-cache')
 const avif = require('gulp-avif')
 
 //! FUNCIONES
 function css(done) {
-    src("src/scss/**/*.scss") // identificar el archivo de SASS
+    src('src/scss/**/*.scss') // identificar el archivo de SASS
         .pipe(plumber())
         .pipe(sass()) // lo compila
-        .pipe(dest("build/css")); // lo almacena en el HDD
+        .pipe(postcss([autoprefixer(), cssnano()]))
+        .pipe(dest('build/css')); // lo almacena en el HDD
 
     done();
 }
@@ -58,7 +66,9 @@ function versionAvif(done) {
 
 function javaScript(done) {
     src('src/js/**/*.js')
+        .pipe(terser())
         .pipe(dest('build/js'))
+
     done()
 }
 
@@ -66,8 +76,8 @@ function javaScript(done) {
 
 
 function dev(done) {
-    watch("src/scss/**/*.scss", css);
-    watch("src/js/**/*.js", javaScript);
+    watch('src/scss/**/*.scss', css);
+    watch('src/js/**/*.js', javaScript);
 
     done();
 }
